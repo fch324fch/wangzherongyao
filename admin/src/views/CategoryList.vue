@@ -7,7 +7,7 @@
       <el-table-column prop="name" label="分类名称"> </el-table-column>
       <el-table-column fixed="right" label="操作" width="180">
         <template slot-scope="scope">
-          <!-- 点击后跳转一个页面 scope.row 当前这一行数据的id值-->
+          <!-- 点击后跳转一个页面 scope.row 当前这一行数据的id值 type颜色类型 size大小-->
           <el-button
             type="primary"
             size="small"

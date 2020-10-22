@@ -100,7 +100,7 @@
 
     <!-- start of news -->
     <m-list-card icon="cc-menu-circle" title="新闻资讯" :categories="newsCats">
-      <!-- 这里#item连接 ListCard里slot name="item" -->
+      <!-- 这里#items连接 ListCard里slot name="items" -->
       <template #items="{ category }">
         <router-link
           tag="div"

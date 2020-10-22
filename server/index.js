@@ -12,6 +12,7 @@ app.use(require('cors')())
 
 //托管静态资源  让uploads里的文件可以让/uploads访问
 app.use('/uploads', express.static(__dirname + '/uploads'))
+app.use('/', express.static(__dirname + '/web'))
 
 
 

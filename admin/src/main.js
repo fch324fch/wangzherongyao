@@ -26,5 +26,5 @@ Vue.mixin({
 
 new Vue({
   router,
-  render: h => h(App)
-}).$mount('#app')
+  render: h => h(App) //render函数是vue通过js渲染dom结构的函数createElement，约定可以简写为h
+}).$mount('#app')  //$mount手动挂载一个未挂载实例

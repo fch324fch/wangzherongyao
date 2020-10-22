@@ -21,14 +21,14 @@ module.exports = app => {
     })
     //更新资源
     router.put('/:id', async (req, res) => {
-        //findByIdAndUpdate通过id去找并更新
+        //findByIdAndUpdate通过id找对应数据将请求体更新与中返回新数据 
         const model = await req.Model.findByIdAndUpdate(req.params.id, req.body)
         res.send(model)
     })
     //删除资源
     router.delete('/:id', async (req, res) => {
         //找到id删除数据
-        await req.Model.findByIdAndDelete(req.params.id, req.body)
+        await req.Model.findByIdAndDelete(req.params.id)
         res.send({
             success: true
         })
@@ -69,7 +69,7 @@ module.exports = app => {
     app.post('/admin/api/upload', authMiidleware(), upload.single('file'), async (req, res) => {
         //本身没有req.file 是multer模块加上的 而且一定要有upload.single才有
         const file = req.file
-        file.url = `http://localhost:3000/uploads/${file.filename}`
+        file.url = `http://www.xxiaofan.com/uploads/${file.filename}`
         res.send(file)
     })
     //生成token模块

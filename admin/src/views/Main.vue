@@ -74,6 +74,7 @@
       </el-header>
 
       <el-main>
+        <!-- vue会复用相同的组件   :key="$route.path"强制不复用组件 -->
         <router-view :key="$route.path"></router-view>
       </el-main>
     </el-container>
@@ -85,7 +86,6 @@
   color: #333;
   line-height: 60px;
 }
-
 .el-aside {
   color: #333;
 }

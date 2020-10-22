@@ -3,7 +3,7 @@
     <!-- id存在就是编辑分类，不存在就是新建分类 -->
     <h1>{{ id ? "编辑" : "新建" }}分类</h1>
     <!-- 横向布局 -->
-    <!-- prevent默认提交不要跳转页面 -->
+    <!-- prevent默认提交不要跳转页面 native原生javascript-->
     <el-form label-width="120px" @submit.native.prevent="save">
       <el-form-item label="上级分类">
         <el-select v-model="model.parent">
@@ -15,6 +15,7 @@
         <el-input v-model="model.name"></el-input>
       </el-form-item>
       <el-form-item>
+        <!-- native 原生类型 -->
         <el-button type="primary" native-type="submit">保存</el-button>
       </el-form-item>
     </el-form>
@@ -23,7 +24,7 @@
 
 <script>
 export default {
-  //接受传递过来的参数
+  //接受传递过来的参数 通过id来判断是新建分类还是编辑分类有id的就是编辑分类
   props: {
     id: {},
   },
@@ -31,11 +32,14 @@ export default {
     // 不使用return包裹的数据会在项目的全局可见，会造成变量污染,使用return包裹后数据中变量只在当前组件中生效，不会影响其他组件
     return {
       model: {},
+      //上级分类
       parents:[]
     };
   },
   methods: {
+    //异步保存方法
     async save() {
+      //
       let res;
       if (this.id) {
         res = await this.$http.put(`rest/categories/${this.id}`, this.model);

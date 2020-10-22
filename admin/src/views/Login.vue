@@ -34,7 +34,9 @@ export default {
   methods: {
     async login() {
       const res = await this.$http.post("login", this.model);
+      //讲服务器响应过来的token保存到本地存储
       localStorage.token = res.data.token;
+      //跳转到首页
       this.$router.push("/");
       this.$message({
         type: "success",
